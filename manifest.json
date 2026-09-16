@@ -1,0 +1,15 @@
+{
+  "name": "Rhythm-39 sampler",
+  "short_name": "Rhythm-39",
+  "description": "Browser-based EP-40 Rhythm style sampler and step sequencer.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#b9b2a2",
+  "theme_color": "#e9e4d8",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

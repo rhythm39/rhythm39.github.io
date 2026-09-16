@@ -1,0 +1,12 @@
+{
+  "name": "rhythm-39",
+  "version": "0.22.0",
+  "private": true,
+  "description": "Browser sampler and step sequencer. No build step; the tests use the Node test runner.",
+  "scripts": {
+    "start": "node serve.js 8765",
+    "test": "node --test tests/core.test.js",
+    "guide": "node tools/build-guide.js"
+  },
+  "license": "MIT"
+}

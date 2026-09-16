@@ -1,0 +1,481 @@
+%PDF-1.4
+%ту╧╙
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Length 3543 >>
+stream
+BT /F2 34 Tf 1 0 0 1 60.00 621.89 Tm (Rhythm-39 User Guide) Tj ET
+BT 0.35 g /F1 13 Tf 1 0 0 1 60.00 575.89 Tm (Version 0.29) Tj 0 g ET
+0.5 G 1.2 w 60 553.89 m 535.28 553.89 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 60.00 521.89 Tm (Rhythm-39 is a sampler and step sequencer that runs in a web browser. It is a homage to pocket) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 507.39 Tm (samplers: sixteen pads, a sixteen-step grid per pad, four pattern slots, live effects, a mixer, a sample) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 492.89 Tm (recorder and a song arranger, all in one page with no installation. Everything you make autosaves in) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 478.39 Tm (the browser.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 453.89 Tm (This guide walks through every view and control. Keyboard shortcuts are shown in capitals.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 417.39 Tm (Getting started) Tj ET
+0.75 G 0.8 w 60 406.89 m 535.28 406.89 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 63.00 395.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 395.64 Tm (Open the app. On Windows, double-click start.bat; it starts a local server and opens the page \(if a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 381.14 Tm (server is already running it is restarted, so updates are picked up\). Anywhere else, run "node) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 366.64 Tm (serve.js 8765" and open http://127.0.0.1:8765, or open index.html directly.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 348.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 348.14 Tm (Tap any pad to wake the audio. Browsers keep sound silent until you interact with the page.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 329.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 329.64 Tm (Press PLAY \(or SPACE\). The demo pattern in slot A plays: a one drop at 78 bpm.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 311.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 311.14 Tm (Tap pads while it plays. Arm REC and your hits are written into the pattern.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 292.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 292.64 Tm (Press ? at any time for the guided tour, which highlights each control and explains it.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 271.14 Tm (Four demo patterns come with the app, one per slot: A one drop, B steppers, C dancehall, D digital) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 256.64 Tm (rockers. RESET DEMO PATTERNS in Settings brings them back at any time.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 220.14 Tm (The four views) Tj ET
+0.75 G 0.8 w 60 209.64 m 535.28 209.64 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 60.00 195.39 Tm (The push keys under the display switch views like the buttons on a cassette deck. F1 to F4 do the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 180.89 Tm (same from the keyboard.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 159.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 159.39 Tm (OUTPUT is the sequencer: pads, steps, transport, song row, live FX, the synth, master FX, swing) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 144.89 Tm (and volume.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 126.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 126.39 Tm (INPUT captures samples: record from the microphone, load a file, resample the pattern, trim,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 111.89 Tm (shape and assign to a pad.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 93.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 93.39 Tm (MIXER balances the pads of the current pattern slot: level, pan, delay send, spring send, mute and) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 78.89 Tm (solo.) Tj ET
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  1 / 8) Tj 0 g ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Length 5134 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 63.00 776.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 776.89 Tm (SETTINGS holds behaviour options, the skin switch, projects, the sample library, export and) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 762.39 Tm (import, audio export, MIDI, the keyboard map and the tour.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 728.89 Tm (The display) Tj ET
+0.75 G 0.8 w 60 718.39 m 535.28 718.39 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 60.00 704.14 Tm (The dark display at the top shows the current pattern slot, tempo and swing, a stereo output meter,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 689.64 Tm (and a message line that describes whatever you just did. When REC is armed a red REC mark blinks.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 675.14 Tm (The meter has a peak tick that holds for a second and turns red when the mix hits the limiter.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 638.64 Tm (Output view) Tj ET
+0.75 G 0.8 w 60 628.14 m 535.28 628.14 l S 0 G
+BT /F2 12 Tf 1 0 0 1 60.00 607.89 Tm (Pads) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 586.89 Tm (Sixteen pads in four colour groups: orange drums, yellow percussion, blue bass, pink effects. Tap a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 572.39 Tm (pad to play it. The last pad you hit becomes the selected pad, shown with a dark outline, and the step) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 557.89 Tm (grid shows that pad's steps.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 533.39 Tm (The big digit on each pad is its computer key: 1 2 3 4 on the top row, then Q W E R, A S D F, and Z X) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 518.89 Tm (C V. Hold SHIFT for an accented, louder hit. Keys can be remapped or hidden in Settings.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 494.39 Tm (With "Position velocity" on in Settings, a touch in the top third of a pad plays an accent, so you get two) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 479.89 Tm (dynamics on a phone without SHIFT.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 449.39 Tm (Pad modes: PLAY, MUTE, KEYS) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 431.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 431.39 Tm (PLAY is the normal mode: pads trigger sounds.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 412.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 412.89 Tm (MUTE \(or N\): each tap silences or restores a pad in the sequencer. Muted pads dim. Settings can) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 398.39 Tm (make MUTE momentary, active only while the button or N is held.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 379.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 379.89 Tm (KEYS \(or B\): the selected pad is spread across the grid as a chromatic keyboard, root at the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 365.39 Tm (bottom left, rising left to right and bottom to top. Sixteen notes cover an octave and a fourth. Use it) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 350.89 Tm (for bass lines and chords. With REC armed the notes are recorded onto the source pad as pitch) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 336.39 Tm (locks.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 308.89 Tm (Transport) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 290.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 290.89 Tm (PLAY starts the loop from step 1 and STOP halts it. SPACE toggles the two and ESC stops.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 276.39 Tm (Stopping lets the delay and reverb ring out, the way hardware sequencers do; press STOP \(or) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 261.89 Tm (ESC\) a second time to cut every sound at once. Turn off "Let the delay and reverb ring out" in) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 247.39 Tm (Settings if you want every stop to cut the tails.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 228.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 228.89 Tm (REC \(ENTER\) arms recording. With REC armed, PLAY gives one bar of count-in clicks \(a Settings) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 214.39 Tm (option\), then every pad you hit is written into the pattern. While armed, two options appear under) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 199.89 Tm (the transport: OVERDUB adds hits on top of what is there, REPLACE rewrites a held pad's steps) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 185.39 Tm (as the playhead passes; QUANTIZE snaps hits to the grid, FREE TIME keeps each hit's offset as a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 170.89 Tm (timing lock.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 152.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 152.39 Tm (A B C D pick the pattern slot. Each slot has its own kit, tempo, length, mixer strips and pattern.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 137.89 Tm (While playing, choosing another slot waits for the loop to end, blinking until it switches.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 119.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 119.39 Tm (Tempo: type a BPM, use minus and plus, tap TAP in time \(T\), or scroll the wheel over the box. The) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 104.89 Tm (square brackets nudge by 1, with SHIFT by 5. The tempo is saved with the current slot.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 86.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 86.39 Tm (MET \(M\) turns on a metronome click on every beat.) Tj ET
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  2 / 8) Tj 0 g ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 4963 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 63.00 776.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 776.89 Tm (SONG \(SHIFT+SPACE\) opens the song row, described below.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 749.39 Tm (Steps) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 728.39 Tm (The grid shows one page of steps for the selected pad, named in the title. Click a step to cycle it: off,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 713.89 Tm (on, accent \(outlined\). Press on one step and drag across others to paint them all the same. Every beat) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 699.39 Tm (is marked; bar starts are marked stronger.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 677.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 677.89 Tm (KIT picks which kit this slot plays: the four synth kits \(RHYTHM, STEPPERS, DANCEHALL,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 663.39 Tm (DIGITAL\) or the bundled 808 SMP sample kit, which loads on first use. Sampled pads carry a KIT) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 648.89 Tm (tag.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 630.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 630.39 Tm (STEPS cycles the pattern length: 8, 12, 16, 32 and 64 steps in 4/4, then 12, 24 and 48 triplet steps) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 615.89 Tm (in 12/8. Growing repeats the loop, shrinking cuts it. Longer patterns get page buttons that follow the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 601.39 Tm (playhead; tap a page to pin it while editing, tap it again to follow.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 582.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 582.89 Tm (UNDO \(CTRL+Z, CTRL+SHIFT+Z to redo\) reverses pattern edits, recorded hits, song edits and) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 568.39 Tm (mixer moves.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 549.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 549.89 Tm (COPY and PASTE move a whole pattern between slots; hold SHIFT to copy or paste only the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 535.39 Tm (selected pad row.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 516.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 516.89 Tm (CLR PAD empties the selected pad \(BACKSPACE\), CLR PTN empties the slot. While playing, hold) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 502.39 Tm (CLR PAD or BACKSPACE and tap pads to erase just their hits as the playhead passes.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 474.89 Tm (Parameter locks) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 453.89 Tm (Hold a step for half a second, or right-click it, to open its locks:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 432.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 432.39 Tm (PITCH in semitones, an octave each way.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 413.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 413.89 Tm (FILTER, a low-pass on that hit from 300 Hz to fully open.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 395.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 395.39 Tm (SEND, a multiplier on the pad's delay send.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 376.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 376.89 Tm (TIME, a nudge of up to half a step early or late.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 355.39 Tm (HEAR auditions the step with its locks, CLEAR removes them. Locked steps carry a dot. Turning a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 340.89 Tm (step off keeps its locks parked; they return when the step comes back. Locks survive undo, copy,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 326.39 Tm (export and share links.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 295.89 Tm (Song mode) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 274.89 Tm (SONG opens a row of chips under the transport. + ADD appends the current slot as a chip. Tap a chip) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 260.39 Tm (to edit it: minus and plus set how many times it repeats \(the wheel works too\), the arrows move it,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 245.89 Tm (SLOT changes which pattern it plays, REMOVE deletes it. Chips for empty slots are dimmed.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 221.39 Tm (With SONG on, PLAY runs the list from the top, switching at loop ends and following each slot's) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 206.89 Tm (tempo. LOOP repeats the song; off, it stops at the end. Tapping A to D during a song plays that slot) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 192.39 Tm (for one pass, then the song continues. The song is saved with the project and travels in share links.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 161.89 Tm (Live FX) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 140.89 Tm (Hold a button for a momentary effect:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 119.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 119.39 Tm (DELAY \(U\) throws everything into the tape delay.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 100.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 100.89 Tm (LO-PASS \(I\) and HI-PASS \(O\) sweep the master filters.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 82.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 82.39 Tm (STUTTER \(P\) repeats the current step at 1/32.) Tj ET
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  3 / 8) Tj 0 g ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 4920 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 63.00 776.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 776.89 Tm (TAPE STOP \(J\) slows the whole mix to a halt like a tape deck.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 758.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 758.39 Tm (HALF \(K\) plays at half speed and snaps back to the grid on release.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 739.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 739.89 Tm (REPEAT 1/8 \(L\) repeats the current step at 1/8.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 721.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 721.39 Tm (SWEEP \(;\) runs a slow bandpass over the mix.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 699.89 Tm (Double-tap a button to latch it, tap again to release. Drag up or down while holding to set the intensity,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 685.39 Tm (shown as a fill. PLAY and STOP clear every latch. With the keyboard, SPACE on a focused button) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 670.89 Tm (toggles it and ENTER latches it.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 640.39 Tm (Synth) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 619.39 Tm (Rhythm-39 has a built-in synth. USE IN SLOT puts the SYNTH kit on the current pattern slot: the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 604.89 Tm (sixteen pads become notes, C at the bottom left rising left to right and bottom to top \(an octave and a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 590.39 Tm (fourth\), and the sequencer records and plays them exactly like drum pads, parameter locks included.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 575.89 Tm (The KIT button switches the slot back to a drum kit. Notes held on a pad or key sustain until you let) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 561.39 Tm (go; in the sequencer a step lasts one step.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 536.89 Tm (The voice is two detuned oscillators \(SAW, SQUARE, TRIANGLE or SINE\) plus a sub oscillator an) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 522.39 Tm (octave down, a resonant low-pass filter with its own envelope \(CUTOFF, RESO, ENV\), DRIVE, an) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 507.89 Tm (amp envelope \(ATTACK, DECAY, SUSTAIN, RELEASE\), DETUNE, SUB level and GLIDE. OCT) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 493.39 Tm (shifts the whole keyboard.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 468.89 Tm (The X/Y surface is for playing: drag on it and two parameters follow, X left to right and Y bottom to top.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 454.39 Tm (The buttons under it pick what each axis controls \(cutoff, resonance, envelope, decay, release,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 439.89 Tm (detune, sub, drive or glide\). With the surface focused, the arrow keys nudge it. A change applies to) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 425.39 Tm (the next note, so ride the surface while a sequence runs. RESET returns the default sound. The synth) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 410.89 Tm (settings are saved with the project, travel in share links and render into audio exports.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 380.39 Tm (Master FX) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 359.39 Tm (Three dub tools on the master bus, each with WET and one character knob:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 337.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 337.89 Tm (SPRING is a spring reverb fed by the pads. Effects pads send the most, drums a little, bass none;) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 323.39 Tm (the MIXER changes the sends per pad. DECAY sets the ring, half a second to three.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 304.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 304.89 Tm (TAPE is the delay the pads and the DELAY key throw into, with wow, flutter and tape saturation.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 290.39 Tm (FEEDBK at the top self-oscillates.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 271.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 271.89 Tm (CRUSH is a bit reducer with sample-rate dropping. BITS runs from 12 \(clean\) to 4 \(broken\).) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 250.39 Tm (RESET restores the defaults. Master FX are saved with the project and rendered into exports.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 219.89 Tm (Swing and volume) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 198.89 Tm (SWING pushes off-beats late for a lazier feel. 16TH swings every odd step, 8TH only the off-beat) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 184.39 Tm (eighths. VOLUME is the master output. Scroll the wheel over either slider to nudge it.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 147.89 Tm (Input view) Tj ET
+0.75 G 0.8 w 60 137.39 m 535.28 137.39 l S 0 G
+BT /F2 12 Tf 1 0 0 1 60.00 117.14 Tm (Capturing a sample) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 99.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 99.14 Tm (REC records from the microphone, up to 12 seconds. STOP ends the take early. Tick "wait for) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 84.64 Tm (signal" and recording starts on the first sound.) Tj ET
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  4 / 8) Tj 0 g ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 4917 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 63.00 776.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 776.89 Tm (LOAD opens an audio file; dragging a file onto the waveform works too.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 758.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 758.39 Tm (RESAMPLE \(or SHIFT+REC\) bounces one pass of the current pattern into the editor, the classic) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 743.89 Tm (way to layer or chop a loop. Tick "resample with delay tail" to include the delay ring-out.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 725.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 725.39 Tm (TEST TONE plays a click through the speaker, useful on phones to confirm output still works after) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 710.89 Tm (the microphone opened.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 692.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 692.39 Tm (PREVIEW plays the trimmed result with the current settings.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 664.89 Tm (Shaping it) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 643.89 Tm (The waveform shows the kept part bright and the trimmed ends dimmed. Tap anywhere on it to move) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 629.39 Tm (the nearest trim handle. The bar underneath is the live input level while the microphone is open.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 607.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 607.89 Tm (START and END set the played region. GAIN scales the level from silence to double. PITCH shifts) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 593.39 Tm (in semitones, an octave each way, which also changes the length.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 574.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 574.89 Tm (FADE IN and FADE OUT ramp the edges, drawn as shaded corners on the waveform. PAN places) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 560.39 Tm (the sample.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 541.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 541.89 Tm (ONE-SHOT plays through. GATE plays only while the pad or key is held. LOOP repeats between) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 527.39 Tm (the trim points while held. In the sequencer both last one step.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 508.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 508.89 Tm (CHOKE picks which group cuts the sample: the kit default \(hats\), none, the hats, or the free groups) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 494.39 Tm (A and B.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 475.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 475.89 Tm ("reverse" flips the audio; the trim points flip with it.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 448.39 Tm (Assigning) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 427.39 Tm (Choose a target pad in the grid at the bottom; it mirrors the output pads with the current kit names,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 412.89 Tm (and tapping one plays it. ASSIGN writes the sample to that pad and stores it in the browser. With) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 398.39 Tm ("store only the trimmed part" ticked, only the region between the trim handles is stored. The pad) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 383.89 Tm (shows the sample name with an SMP tag and keeps working in the sequencer, mutes and all.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 369.39 Tm (REVERT returns the pad to its kit sound. CLEAR EDITOR empties the editor without touching the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 354.89 Tm (pad. Samples are shared by all projects.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 318.39 Tm (Mixer view) Tj ET
+0.75 G 0.8 w 60 307.89 m 535.28 307.89 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 60.00 293.64 Tm (One strip per pad for the pattern slot shown:) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 272.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 272.14 Tm (LVL from silence to 150 percent, PAN, DLY \(send to the tape delay\), VRB \(send to the spring\).) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 253.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 253.64 Tm (M mutes, S solos. Solo is exclusive; hold SHIFT to add a second solo. Solo and mute are shared) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 239.14 Tm (by all slots; the strips belong to the slot.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 220.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 220.64 Tm (R resets the strip, double-click resets one slider, tapping the name auditions the pad.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 202.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 202.14 Tm (COPY MIX and PASTE MIX carry a balance to another slot; CLEAR SOLO and RESET MIX do) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 187.64 Tm (what they say.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 166.14 Tm (Strips start at the kit's own defaults and are saved with the project. Switching a slot's kit moves) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 151.64 Tm (untouched strips to the new kit's defaults and keeps edited ones.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 115.14 Tm (Settings) Tj ET
+0.75 G 0.8 w 60 104.64 m 535.28 104.64 l S 0 G
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  5 / 8) Tj 0 g ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 5218 >>
+stream
+BT /F2 12 Tf 1 0 0 1 60.00 767.89 Tm (Behaviour) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 749.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 749.89 Tm (Count-in adds one bar of clicks before recording starts.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 731.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 731.39 Tm (Haptics gives a small buzz on touch pad hits.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 712.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 712.89 Tm (Key caps shows or hides the digits on the pads.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 694.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 694.39 Tm (Loud metronome makes the click easier to hear.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 675.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 675.89 Tm (Hold MUTE makes mute mode momentary.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 657.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 657.39 Tm (Sidechain lets the kick duck the bass and FX pads for a pumping feel.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 638.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 638.89 Tm (High contrast darkens pad text and thickens step outlines.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 620.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 620.39 Tm (Low latency asks the device for its smallest audio buffer, after a reload. The line under it reports the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 605.89 Tm (measured output latency; recording compensates for it automatically.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 587.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 587.39 Tm (The Light / Dark switch picks the skin. It follows the system setting until you flip it.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 568.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 568.89 Tm ("Let the delay and reverb ring out after STOP" \(on by default\) keeps the effect tails going when you) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 554.39 Tm (stop; off, every STOP silences everything.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 535.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 535.89 Tm ("Resume where the loop stopped" keeps your place after a phone lock instead of skipping ahead.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 517.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 517.39 Tm ("Always show key hints" brings the key letters and legend back on touch devices.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 498.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 498.89 Tm (Position velocity makes the top third of a pad an accent on touch.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 471.39 Tm (Projects) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 450.39 Tm (Every project keeps its own patterns, tempos, song, master FX and mixer. The open one autosaves.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 435.89 Tm (NEW PROJECT starts another from the demos, LOAD switches, DUPLICATE copies, DELETE) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 421.39 Tm (moves one to a session trash with RESTORE, and tapping a name renames it. A share link you open) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 406.89 Tm (becomes its own project.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 376.39 Tm (Project files and sharing) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 358.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 358.39 Tm (EXPORT saves the project as a JSON file; IMPORT loads one back.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 339.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 339.89 Tm (COPY SHARE LINK puts the whole project in a URL you can send to someone. SHOW QR draws) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 325.39 Tm (that link as a code another phone can scan. Links longer than 2 KB make a dense code; hold the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 310.89 Tm (phone steady.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 292.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 292.39 Tm (RESET DEMO PATTERNS restores the four demos.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 273.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 273.89 Tm (CLEAR ALL SAMPLES returns every pad to its kit sound. It asks for a second click.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 246.39 Tm (Library) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 225.39 Tm (Every sample stored in this browser, with its pad, length and size. LOAD opens it in INPUT, MOVE) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 210.89 Tm (puts it on another pad \(a sample already there goes to the trash\), DELETE moves it to the trash, and) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 196.39 Tm (tapping the name renames it. Trashed samples can be restored until you close the page. The line) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 181.89 Tm (under the list shows how much storage the site uses. Safari may discard samples after seven days) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 167.39 Tm (without a visit unless the app is installed to the home screen.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 136.89 Tm (Export audio) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 115.89 Tm (Pick the current pattern \(x1 to x8 passes\) or the song, optionally a one-bar tail so the delay can ring) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 101.39 Tm (out, and MET to render the metronome. EXPORT WAV downloads a 16-bit stereo file. Master FX,) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 86.89 Tm (mixer settings, parameter locks and any latched live FX are rendered. The result is scaled to -1 dBFS) Tj ET
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  6 / 8) Tj 0 g ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 4728 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 60.00 777.89 Tm (if it runs hot.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 747.39 Tm (MIDI) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 726.39 Tm (ENABLE MIDI asks the browser for your controllers \(Chrome and Edge\). Pick an input and an output) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 711.89 Tm (and set the channel. Hits on the controller play the pads: GM drum notes 36 to 51 by default, bottom) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 697.39 Tm (row first, or LEARN your own map by clicking a pad slot and hitting a controller pad. Velocity under 64) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 682.89 Tm (is a normal hit, over is an accent. The app can follow an incoming clock and start / stop, and send its) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 668.39 Tm (own 24 ppqn clock, transport and pad notes to hardware.) Tj ET
+BT /F2 12 Tf 1 0 0 1 60.00 637.89 Tm (Keyboard) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 616.89 Tm (Click a pad slot and press a key to remap it; keys swap if the new one is taken. RESET KEYS) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 602.39 Tm (restores the default layout. The full keyboard map is printed below the remapper.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 565.89 Tm (Keyboard reference) Tj ET
+0.75 G 0.8 w 60 555.39 m 535.28 555.39 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 63.00 544.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 544.14 Tm (Pads: 1 2 3 4, Q W E R, A S D F, Z X C V \(top row to bottom\). SHIFT for an accent.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 525.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 525.64 Tm (Transport: SPACE play / stop, ENTER record arm, ESC stop, [ and ] tempo \(SHIFT for 5\), T tap) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 511.14 Tm (tempo, M metronome, SHIFT+SPACE song mode.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 492.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 492.64 Tm (Steps: click cycles, drag paints, hold or right-click for locks, BACKSPACE clears the pad \(hold it) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 478.14 Tm (while playing to erase live\). With a step focused: arrows move, SPACE cycles, SHIFT+SPACE) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 463.64 Tm (cycles down, ENTER opens locks.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 445.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 445.14 Tm (Live FX: U I O P and J K L ; while held. On a focused button SPACE toggles, ENTER latches.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 426.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 426.64 Tm (Modes: N mute mode, B keys mode.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 408.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 408.14 Tm (Views: F1 output, F2 input, F3 mixer, F4 settings. ? opens the tour; arrows step through it, ESC) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 393.64 Tm (closes.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 375.14 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 375.14 Tm (Undo: CTRL+Z, redo CTRL+SHIFT+Z.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 356.64 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 356.64 Tm (Wheel: over the tempo box, any slider, the STEPS button or a step lock to nudge it. SHIFT for) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 342.14 Tm (bigger steps.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 308.64 Tm (Tips) Tj ET
+0.75 G 0.8 w 60 298.14 m 535.28 298.14 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 63.00 286.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 286.89 Tm (Build a track from four loops: make A your groove, duplicate it into B with COPY and PASTE, add a) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 272.39 Tm (fill on the last bar of B with a 32-step length, then chain A x4, B x1 in the song row.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 253.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 253.89 Tm (A dub mix is mostly sends: raise the spring WET, then push individual pads into it from the MIXER) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 239.39 Tm (and throw the DELAY key on the snare.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 220.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 220.89 Tm (Resample a busy pattern, assign it to a pad, and play that pad in KEYS mode for instant re-pitched) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 206.39 Tm (breaks.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 187.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 187.89 Tm (Parameter locks on a single hat row \(a few pitch and filter changes\) do more for movement than) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 173.39 Tm (adding pads.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 154.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 154.89 Tm (Use REPLACE recording to fix one bad pad without clearing the rest, and FREE TIME when the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 140.39 Tm (feel matters more than the grid.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 106.89 Tm (Troubleshooting) Tj ET
+0.75 G 0.8 w 60 96.39 m 535.28 96.39 l S 0 G
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  7 / 8) Tj 0 g ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 2203 >>
+stream
+BT /F1 10.5 Tf 1 0 0 1 63.00 776.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 776.89 Tm (No sound: tap a pad first, check the master VOLUME and the phone's silent switch, and look at the) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 762.39 Tm (display for "audio paused, tap to resume".) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 743.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 743.89 Tm (Crackles or dropouts: turn off Low latency, close other audio apps, try wired headphones. The) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 729.39 Tm (Settings latency line tells you how the device is doing.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 710.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 710.89 Tm (The pads react late: that is output latency, shown in Settings. Recording already compensates for) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 696.39 Tm (it.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 677.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 677.89 Tm (Samples disappeared: Safari removes site storage after seven days without a visit unless the app) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 663.39 Tm (is installed to the home screen. Export projects you care about.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 644.89 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 644.89 Tm (MIDI missing: only Chrome and Edge support Web MIDI. Firefox and Safari show a note instead.) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 63.00 626.39 Tm (Х) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 626.39 Tm (The page looks stale after an update: reload once. On localhost the service worker is disabled so) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 74.00 611.89 Tm (development always shows fresh files.) Tj ET
+BT /F2 15 Tf 1 0 0 1 60.00 578.39 Tm (Licences) Tj ET
+0.75 G 0.8 w 60 567.89 m 535.28 567.89 l S 0 G
+BT /F1 10.5 Tf 1 0 0 1 60.00 553.64 Tm (Rhythm-39 is MIT licensed. The bundled 808 sample kit is the Michael Fischer TR-808 set) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 539.14 Tm (redistributed by TidalCycles under CC0 1.0; see LICENSES.md for details. "808" is used to mean) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 60.00 524.64 Tm (808-style; TR-808 is a trademark of Roland Corporation, which is not associated with this project.) Tj ET
+BT /F1 8 Tf 0.45 g 1 0 0 1 242.284 36 Tm (Rhythm-39 User Guide  ╖  8 / 8) Tj 0 g ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 19 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R] /Count 8 >>
+endobj
+20 0 obj
+<< /Type /Catalog /Pages 19 0 R >>
+endobj
+21 0 obj
+<< /Title (Rhythm-39 User Guide) /Producer (Rhythm-39 build-guide.js) /CreationDate (D:20260915173849) >>
+endobj
+xref
+0 22
+0000000000 65535 f 
+0000000015 00000 n 
+0000000112 00000 n 
+0000000214 00000 n 
+0000003809 00000 n 
+0000003952 00000 n 
+0000009138 00000 n 
+0000009281 00000 n 
+0000014296 00000 n 
+0000014439 00000 n 
+0000019411 00000 n 
+0000019555 00000 n 
+0000024525 00000 n 
+0000024670 00000 n 
+0000029941 00000 n 
+0000030086 00000 n 
+0000034867 00000 n 
+0000035012 00000 n 
+0000037268 00000 n 
+0000037413 00000 n 
+0000037518 00000 n 
+0000037569 00000 n 
+trailer
+<< /Size 22 /Root 20 0 R /Info 21 0 R >>
+startxref
+37691
+%%EOF

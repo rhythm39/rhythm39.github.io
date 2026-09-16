@@ -1,0 +1,30 @@
+{
+  "kits": [
+    {
+      "id": "808",
+      "name": "808 SMP",
+      "dir": "samples/808",
+      "source": "https://github.com/tidalcycles/sounds-tr808-fischer",
+      "license": "CC0 1.0",
+      "credit": "Michael Fischer, Technopolis, TR-808 sample set 1.0.0 (1994), redistributed by TidalCycles under CC0",
+      "pads": [
+        { "file": "cymbal.wav", "name": "CYMBAL", "gain": 0.8, "send": 0.15, "verb": 0.3 },
+        { "file": "cowbell.wav", "name": "COWBELL", "gain": 0.8, "send": 0.1, "verb": 0.2 },
+        { "file": "claves.wav", "name": "CLAVES", "gain": 0.9, "send": 0.15, "verb": 0.25 },
+        { "file": "maracas.wav", "name": "MARACAS", "gain": 0.9, "send": 0, "verb": 0.15 },
+        { "file": "tom-lo.wav", "name": "TOM LO", "gain": 0.9, "send": 0.05, "verb": 0.15 },
+        { "file": "tom-mid.wav", "name": "TOM MID", "gain": 0.9, "send": 0.05, "verb": 0.15 },
+        { "file": "boom.wav", "name": "808 BOOM", "gain": 1.0, "send": 0, "verb": 0 },
+        { "file": "tom-hi.wav", "name": "TOM HI", "gain": 0.9, "send": 0.05, "verb": 0.15 },
+        { "file": "conga-lo.wav", "name": "CONGA LO", "gain": 0.9, "send": 0.05, "verb": 0.15 },
+        { "file": "conga-mid.wav", "name": "CONGA MID", "gain": 0.9, "send": 0.05, "verb": 0.15 },
+        { "file": "conga-hi.wav", "name": "CONGA HI", "gain": 0.9, "send": 0.05, "verb": 0.15 },
+        { "file": "rim.wav", "name": "RIM 808", "gain": 0.9, "send": 0.1, "verb": 0.15 },
+        { "file": "kick.wav", "name": "KICK 808", "gain": 1.0, "send": 0, "verb": 0.05 },
+        { "file": "snare.wav", "name": "SNARE 808", "gain": 0.95, "send": 0.1, "verb": 0.15 },
+        { "file": "hat-closed.wav", "name": "CL HAT 808", "gain": 0.85, "send": 0, "verb": 0.05, "choke": "hat" },
+        { "file": "hat-open.wav", "name": "OP HAT 808", "gain": 0.85, "send": 0.05, "verb": 0.1, "choke": "hat" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# --- Local dev tooling: everything that runs the app on this machine ---
+serve.js
+start.bat
+stop.bat
+deploy.bat
+dist/
+
+# --- Claude / assistant files ---
+.claude/
+CLAUDE.md
+*.local.json
+.mcp.json
+
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm/
+package-lock.json
+
+# --- Editors / OS junk ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+Trash/

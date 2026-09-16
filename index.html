@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#e9e4d8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>RHYTHM-39 · sampler</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Theme bootstrap: apply the stored skin before first paint so there is no flash
+    try {
+      var st = JSON.parse(localStorage.getItem('rhythm39.settings') || '{}'), th = st.theme || 'auto';
+      if (th === 'black' || (th === 'auto' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('theme-black');
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <main class="unit" id="unit">
+
+    <!-- Top strip: brand + display -->
+    <header class="top">
+      <div class="brand">
+        <span class="brand-model">RHYTHM-39</span>
+        <span class="brand-sub">sampler · sequencer · web edition</span>
+      </div>
+      <div class="lcd" id="lcd">
+        <div class="lcd-row">
+          <span class="lcd-label">PTN</span><span class="lcd-val" id="lcd-ptn">A</span>
+          <span class="lcd-label">BPM</span><span class="lcd-val" id="lcd-bpm">88</span>
+          <span class="lcd-label">SWG</span><span class="lcd-val" id="lcd-swg">0</span>
+          <span class="lcd-meter" id="lcd-meter" aria-hidden="true"><i><b></b><u></u></i><i><b></b><u></u></i></span>
+        </div>
+        <div class="lcd-row">
+          <span class="lcd-msg" id="lcd-msg">tap a pad to wake audio</span>
+          <span class="lcd-rec" id="lcd-rec">●REC</span>
+        </div>
+        <span class="sr-only" id="lcd-sr" aria-live="polite"></span>
+      </div>
+    </header>
+
+    <!-- Cassette-deck style view keys -->
+    <nav class="deck" role="tablist" aria-label="Mode">
+      <button class="deck-key active" role="tab" data-view="output" aria-selected="true"><span class="deck-led"></span>OUTPUT</button>
+      <button class="deck-key" role="tab" data-view="input" aria-selected="false"><span class="deck-led"></span>INPUT</button>
+      <button class="deck-key" role="tab" data-view="mixer" aria-selected="false"><span class="deck-led"></span>MIXER</button>
+      <button class="deck-key" role="tab" data-view="settings" aria-selected="false"><span class="deck-led"></span>SETTINGS</button>
+    </nav>
+
+    <!-- ================= OUTPUT ================= -->
+    <section class="view active" id="view-output" data-view="output">
+
+      <section class="transport" aria-label="Transport">
+        <button class="tbtn" id="btn-play" data-key="Space" title="Play (Space toggles play / stop)">
+          <span class="ico">▶</span><span class="tlabel">PLAY</span>
+        </button>
+        <button class="tbtn" id="btn-stop" title="Stop (Esc). Press twice to cut the effect tails">
+          <span class="ico">■</span><span class="tlabel">STOP</span>
+        </button>
+        <button class="tbtn tbtn-rec" id="btn-rec" title="Record arm (Enter)">
+          <span class="ico">●</span><span class="tlabel">REC</span>
+        </button>
+        <div class="bpm">
+          <button class="mini" id="bpm-down" title="BPM down ( [ )" aria-label="Tempo down">−</button>
+          <input class="bpm-input" id="bpm" type="number" min="40" max="240" value="88" inputmode="numeric" aria-label="BPM">
+          <button class="mini" id="bpm-up" title="BPM up ( ] )" aria-label="Tempo up">+</button>
+          <button class="mini txt" id="btn-tap" title="Tap tempo (T)">TAP</button>
+          <button class="mini txt" id="btn-met" title="Metronome (M)">MET</button>
+          <button class="mini txt" id="btn-song" title="Song mode: play the pattern list (Shift+Space)">SONG</button>
+        </div>
+        <div class="ptn" role="group" aria-label="Pattern">
+          <button class="pbtn on" data-ptn="0">A</button>
+          <button class="pbtn" data-ptn="1">B</button>
+          <button class="pbtn" data-ptn="2">C</button>
+          <button class="pbtn" data-ptn="3">D</button>
+        </div>
+      </section>
+
+      <div class="rec-opts" id="rec-opts" hidden>
+        <span class="rec-opts-title">REC</span>
+        <button class="mini txt" id="rec-mode" title="OVERDUB adds hits on top; REPLACE rewrites a held pad's steps as the playhead passes">OVERDUB</button>
+        <button class="mini txt" id="rec-quant" title="QUANTIZE snaps hits to the grid; FREE TIME keeps their timing as a lock">QUANTIZE</button>
+        <span class="rec-opts-hint">hold CLR PAD (or Backspace) and tap pads to erase their hits while playing</span>
+      </div>
+
+      <section class="song" id="song" aria-label="Song" hidden>
+        <div class="song-head">
+          <span class="song-title">SONG · <span id="song-status">empty</span></span>
+          <button class="mini txt" id="song-loop" title="Loop the song, or stop at the end">LOOP</button>
+          <button class="mini txt" id="song-add" title="Append the current pattern to the song">+ ADD</button>
+        </div>
+        <div class="song-chips" id="song-chips"></div>
+        <div class="song-edit" id="song-edit" hidden>
+          <span class="song-edit-name" id="song-edit-name">A</span>
+          <button class="mini" id="song-rep-down" title="Fewer repeats" aria-label="Fewer repeats">−</button>
+          <span class="song-edit-rep" id="song-edit-rep">x1</span>
+          <button class="mini" id="song-rep-up" title="More repeats" aria-label="More repeats">+</button>
+          <span class="song-edit-gap"></span>
+          <button class="mini" id="song-left" title="Move earlier" aria-label="Move entry earlier">◀</button>
+          <button class="mini" id="song-right" title="Move later" aria-label="Move entry later">▶</button>
+          <button class="mini txt" id="song-slot" title="Change which pattern this entry plays">SLOT</button>
+          <button class="mini txt" id="song-remove" title="Remove this entry">REMOVE</button>
+        </div>
+      </section>
+
+      <section class="steps" aria-label="Step sequencer">
+        <div class="steps-head">
+          <span class="steps-title">STEPS · <span id="steps-pad">KICK</span></span>
+          <button class="mini txt" id="btn-undo" title="Undo (Ctrl+Z)">UNDO</button>
+          <button class="mini txt" id="btn-copy" title="Copy pattern">COPY</button>
+          <button class="mini txt" id="btn-paste" title="Paste pattern" disabled>PASTE</button>
+          <button class="mini txt" id="btn-clear-pad" title="Clear this pad's steps (Backspace)">CLR PAD</button>
+          <button class="mini txt" id="btn-clear-ptn" title="Clear whole pattern">CLR PTN</button>
+        </div>
+        <div class="steps-sub">
+          <div class="step-pages" id="step-pages" role="group" aria-label="Step page" hidden></div>
+          <span class="steps-sub-gap"></span>
+          <button class="mini txt" id="btn-kit" title="Which synth kit this slot plays">KIT: RHYTHM</button>
+          <button class="mini txt" id="btn-len" title="Pattern length">16 STEPS</button>
+        </div>
+        <div class="step-grid" id="step-grid"></div>
+        <div class="lock-pop" id="lock-pop" hidden>
+          <div class="lock-head"><span class="lock-title">STEP <b id="lock-step">1</b> · LOCKS</span><button class="mini txt" id="lock-audition" title="Hear the step with these locks">HEAR</button><button class="mini txt" id="lock-clear">CLEAR</button><button class="mini txt" id="lock-close">CLOSE</button></div>
+          <div class="lock-grid">
+            <label class="mfx-knob"><span>PITCH</span><input type="range" id="lock-p" min="-12" max="12" value="0" aria-label="Step pitch in semitones"><output>0</output></label>
+            <label class="mfx-knob"><span>FILTER</span><input type="range" id="lock-f" min="0" max="100" value="100" aria-label="Step low-pass"><output>open</output></label>
+            <label class="mfx-knob"><span>SEND</span><input type="range" id="lock-s" min="0" max="200" value="100" aria-label="Step delay send"><output>100%</output></label>
+            <label class="mfx-knob"><span>TIME</span><input type="range" id="lock-t" min="-50" max="50" value="0" aria-label="Step timing offset"><output>0%</output></label>
+          </div>
+        </div>
+      </section>
+
+      <div class="padmode" role="group" aria-label="Pad mode">
+        <span class="padmode-title">PADS</span>
+        <button class="mini txt on" id="mode-play" data-mode="play" title="Pads trigger sounds">PLAY</button>
+        <button class="mini txt" id="mode-mute" data-mode="mute" title="Pads toggle mute (N)">MUTE</button>
+        <button class="mini txt" id="mode-keys" data-mode="keys" title="Play the selected pad chromatically across the grid (B)">KEYS</button>
+        <span class="padmode-hint" id="padmode-hint"></span>
+      </div>
+
+      <section class="pads" id="pads" aria-label="Pads"></section>
+
+      <section class="fx" aria-label="Live effects">
+        <div class="fx-head">LIVE FX <span class="dim">hold · double-tap latches · drag for intensity</span></div>
+        <div class="fx-grid">
+          <button class="fxbtn" data-fx="delay" title="Throw everything into the tape delay"><span>DELAY</span><kbd>U</kbd></button>
+          <button class="fxbtn" data-fx="lp" title="Close the master low-pass"><span>LO-PASS</span><kbd>I</kbd></button>
+          <button class="fxbtn" data-fx="hp" title="Raise the master high-pass"><span>HI-PASS</span><kbd>O</kbd></button>
+          <button class="fxbtn" data-fx="stutter" title="Repeat the current step at 1/32"><span>STUTTER</span><kbd>P</kbd></button>
+          <button class="fxbtn" data-fx="tapestop" title="Slow the whole mix to a stop like a tape deck"><span>TAPE STOP</span><kbd>J</kbd></button>
+          <button class="fxbtn" data-fx="half" title="Half time while held, snaps back to the grid on release"><span>HALF</span><kbd>K</kbd></button>
+          <button class="fxbtn" data-fx="rep8" title="Repeat the current step at 1/8"><span>REPEAT ⅛</span><kbd>L</kbd></button>
+          <button class="fxbtn" data-fx="sweep" title="Slow bandpass sweep over the mix"><span>SWEEP</span><kbd>;</kbd></button>
+        </div>
+      </section>
+
+      <section class="synth" aria-label="Built-in synth">
+        <div class="fx-head">SYNTH <span class="dim">pads play notes when a slot uses the SYNTH kit</span><button class="mini txt" id="syn-use" title="Put the SYNTH kit on the current pattern slot">USE IN SLOT</button><button class="mini txt" id="syn-reset" title="Back to the default sound">RESET</button></div>
+        <div class="synth-grid">
+          <div class="syn-xy-wrap">
+            <div class="syn-xy" id="syn-xy" tabindex="0" role="slider" aria-label="X and Y surface" title="Drag: X left to right, Y bottom to top. Arrow keys nudge"><span class="syn-dot" id="syn-dot"></span></div>
+            <div class="syn-xy-foot"><button class="mini txt" id="syn-x-target" title="What the X axis controls">X: CUTOFF</button><span class="syn-xy-read" id="syn-xy-read">55 · 25</span><button class="mini txt" id="syn-y-target" title="What the Y axis controls">Y: RESO</button></div>
+          </div>
+          <div class="syn-knobs">
+            <div class="syn-row"><button class="mini txt" id="syn-wave" title="Oscillator wave">SAW</button><button class="mini" id="syn-oct-down" title="Octave down" aria-label="Octave down">−</button><span class="syn-oct" id="syn-oct">OCT 2</span><button class="mini" id="syn-oct-up" title="Octave up" aria-label="Octave up">+</button></div>
+            <label class="mfx-knob"><span>CUTOFF</span><input type="range" id="syn-cutoff" min="0" max="100" value="55" aria-label="Filter cutoff"><output>55</output></label>
+            <label class="mfx-knob"><span>RESO</span><input type="range" id="syn-reso" min="0" max="100" value="25" aria-label="Filter resonance"><output>25</output></label>
+            <label class="mfx-knob"><span>ENV</span><input type="range" id="syn-env" min="0" max="100" value="50" aria-label="Filter envelope amount"><output>50</output></label>
+            <label class="mfx-knob"><span>ATTACK</span><input type="range" id="syn-attack" min="0" max="100" value="1" aria-label="Attack"><output>1</output></label>
+            <label class="mfx-knob"><span>DECAY</span><input type="range" id="syn-decay" min="0" max="100" value="35" aria-label="Decay"><output>35</output></label>
+            <label class="mfx-knob"><span>SUSTAIN</span><input type="range" id="syn-sustain" min="0" max="100" value="50" aria-label="Sustain"><output>50</output></label>
+            <label class="mfx-knob"><span>RELEASE</span><input type="range" id="syn-release" min="0" max="100" value="25" aria-label="Release"><output>25</output></label>
+            <label class="mfx-knob"><span>DETUNE</span><input type="range" id="syn-detune" min="0" max="100" value="15" aria-label="Detune"><output>15</output></label>
+            <label class="mfx-knob"><span>SUB</span><input type="range" id="syn-sub" min="0" max="100" value="35" aria-label="Sub oscillator"><output>35</output></label>
+            <label class="mfx-knob"><span>DRIVE</span><input type="range" id="syn-drive" min="0" max="100" value="0" aria-label="Drive"><output>0</output></label>
+            <label class="mfx-knob"><span>GLIDE</span><input type="range" id="syn-glide" min="0" max="100" value="0" aria-label="Glide"><output>0</output></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="mfx" aria-label="Master effects">
+        <div class="fx-head">MASTER FX <span class="dim">spring · tape · crush</span><button class="mini txt" id="fx-reset" title="Back to the default master FX">RESET</button></div>
+        <div class="mfx-grid">
+          <span class="mfx-name">SPRING</span>
+          <label class="mfx-knob"><span>WET</span><input type="range" id="fx-spring-wet" min="0" max="100" value="0" aria-label="Spring reverb amount"><output>0</output></label>
+          <label class="mfx-knob"><span>DECAY</span><input type="range" id="fx-spring-decay" min="0" max="100" value="36" aria-label="Spring reverb decay"><output>1.4s</output></label>
+          <span class="mfx-name">TAPE</span>
+          <label class="mfx-knob"><span>WET</span><input type="range" id="fx-tape-wet" min="0" max="100" value="100" aria-label="Tape delay amount"><output>100</output></label>
+          <label class="mfx-knob"><span>FEEDBK</span><input type="range" id="fx-tape-fb" min="0" max="100" value="40" aria-label="Tape delay feedback"><output>48</output></label>
+          <span class="mfx-name">CRUSH</span>
+          <label class="mfx-knob"><span>WET</span><input type="range" id="fx-crush-wet" min="0" max="100" value="0" aria-label="Bit crusher amount"><output>0</output></label>
+          <label class="mfx-knob"><span>BITS</span><input type="range" id="fx-crush-bits" min="0" max="100" value="50" aria-label="Bit crusher depth"><output>8b</output></label>
+        </div>
+      </section>
+
+      <section class="mixer" aria-label="Mixer">
+        <label class="knob-row">
+          <span>SWING</span>
+          <input type="range" id="swing" min="0" max="100" value="0" aria-label="Swing">
+          <output id="swing-out">0</output>
+          <button class="mini txt" id="swing-mode" title="Swing every odd 16th, or only the off-beat 8ths">16TH</button>
+        </label>
+        <label class="knob-row">
+          <span>VOLUME</span>
+          <input type="range" id="volume" min="0" max="100" value="80" aria-label="Master volume">
+          <output id="volume-out">80</output>
+        </label>
+      </section>
+    </section>
+
+    <!-- ================= INPUT ================= -->
+    <section class="view" id="view-input" data-view="input">
+      <div class="in-head">
+        <span class="sec-title">SAMPLE INPUT</span>
+        <span class="in-status" id="in-status">no sample loaded</span>
+      </div>
+
+      <div class="wave-wrap" id="wave-wrap">
+        <canvas class="wave" id="wave" width="800" height="200"></canvas>
+        <div class="wave-drop" id="wave-drop">drop an audio file here · or record from the mic</div>
+      </div>
+      <div class="meter" aria-hidden="true"><div class="meter-bar" id="meter-bar"></div></div>
+
+      <div class="in-transport">
+        <button class="tbtn tbtn-rec" id="in-rec" title="Record from microphone (Shift+click resamples)"><span class="ico">●</span><span class="tlabel">REC</span></button>
+        <button class="tbtn" id="in-stop" title="Stop recording"><span class="ico">■</span><span class="tlabel">STOP</span></button>
+        <button class="tbtn" id="in-play" title="Preview trimmed sample"><span class="ico">▶</span><span class="tlabel">PREVIEW</span></button>
+        <label class="tbtn tbtn-file" title="Load an audio file">
+          <span class="ico">⇪</span><span class="tlabel">LOAD</span>
+          <input type="file" id="in-file" accept="audio/*" hidden>
+        </label>
+        <button class="tbtn" id="in-resample" title="Bounce one pass of the current pattern into the editor"><span class="ico">↻</span><span class="tlabel">RESAMPLE</span></button>
+      </div>
+
+      <div class="in-checks">
+        <label class="check-row"><input type="checkbox" id="in-threshold"> <span>wait for signal before recording starts</span></label>
+        <label class="check-row"><input type="checkbox" id="in-reverse"> <span>reverse</span></label>
+        <label class="check-row"><input type="checkbox" id="in-crop" checked> <span>store only the trimmed part</span></label>
+        <label class="check-row"><input type="checkbox" id="in-tail"> <span>resample with delay tail</span></label>
+        <button class="mini txt" id="in-tone" title="Play a click through the speaker">TEST TONE</button>
+      </div>
+
+      <div class="in-knobs">
+        <label class="knob-row"><span>START</span><input type="range" id="in-start" min="0" max="1000" value="0"><output id="in-start-out">0.00s</output></label>
+        <label class="knob-row"><span>END</span><input type="range" id="in-end" min="0" max="1000" value="1000"><output id="in-end-out">0.00s</output></label>
+        <label class="knob-row"><span>GAIN</span><input type="range" id="in-gain" min="0" max="200" value="100"><output id="in-gain-out">100</output></label>
+        <label class="knob-row"><span>PITCH</span><input type="range" id="in-pitch" min="-12" max="12" value="0"><output id="in-pitch-out">0</output></label>
+        <label class="knob-row"><span>FADE IN</span><input type="range" id="in-fadein" min="0" max="500" value="0"><output id="in-fadein-out">0ms</output></label>
+        <label class="knob-row"><span>FADE OUT</span><input type="range" id="in-fadeout" min="0" max="500" value="0"><output id="in-fadeout-out">0ms</output></label>
+        <label class="knob-row"><span>PAN</span><input type="range" id="in-pan" min="-100" max="100" value="0"><output id="in-pan-out">C</output></label>
+        <div class="in-modes">
+          <button class="mini txt" id="in-mode" title="ONE-SHOT plays through, GATE plays while the pad is held, LOOP repeats between the trim points while held">ONE-SHOT</button>
+          <button class="mini txt" id="in-choke" title="Choke group: a hit in the same group cuts this sample. KIT uses the pad's default (hats), NONE never chokes, HAT joins the hats, A and B are free groups">CHOKE: KIT</button>
+        </div>
+      </div>
+
+      <div class="in-actions">
+        <button class="mini txt accent" id="in-assign" disabled>ASSIGN TO PAD</button>
+        <button class="mini txt" id="in-revert">REVERT PAD TO SYNTH</button>
+        <button class="mini txt" id="in-clear">CLEAR EDITOR</button>
+      </div>
+
+      <div class="in-target">
+        <div class="in-target-head">
+          <span class="sec-title">TARGET PAD</span>
+          <span class="in-target-hint">tap to choose and audition · SMP marks pads that hold a sample</span>
+        </div>
+        <div class="tpad-grid" id="in-target-grid" role="group" aria-label="Target pad"></div>
+      </div>
+      <p class="in-note">Recording needs microphone permission. Samples are stored in this browser and survive reloads. Max 12 seconds per take.</p>
+    </section>
+
+    <!-- ================= SETTINGS ================= -->
+    <!-- ================= MIXER ================= -->
+    <section class="view" id="view-mixer" data-view="mixer">
+      <div class="in-head">
+        <span class="sec-title">MIXER · <span id="mixer-slot">A</span></span>
+        <span class="in-status">level · pan · delay send · spring send, per pattern slot</span>
+      </div>
+      <div class="set-actions mixer-actions">
+        <button class="mini txt" id="mixer-copy" title="Copy this slot's mix">COPY MIX</button>
+        <button class="mini txt" id="mixer-paste" title="Paste the copied mix into this slot" disabled>PASTE MIX</button>
+        <button class="mini txt" id="mixer-clear-solo" title="Un-solo every pad">CLEAR SOLO</button>
+        <button class="mini txt" id="mixer-reset" title="Kit defaults for every strip in this slot">RESET MIX</button>
+      </div>
+      <div class="mixer-grid" id="mixer-grid"></div>
+      <p class="in-note">M mutes and S solos a pad (solo is exclusive; hold Shift to add). Solo and mute are shared by all slots, the strips belong to the slot shown. Double-click a slider to reset it, R resets the strip.</p>
+    </section>
+
+    <section class="view" id="view-settings" data-view="settings">
+      <div class="set-help">
+        <button class="help-pad" id="btn-help" title="Guided tour">?</button>
+        <div class="set-help-text">
+          <b>GUIDED TOUR</b>
+          <span>Walks through every control, one at a time, and highlights it on the unit.</span>
+        </div>
+      </div>
+
+      <div class="set-group" id="set-behaviour">
+        <span class="sec-title">BEHAVIOUR</span>
+        <label class="check-row"><input type="checkbox" id="set-countin" checked> <span>One-bar count-in when REC is armed and you press PLAY</span></label>
+        <label class="check-row"><input type="checkbox" id="set-haptics" checked> <span>Haptic tick on touch pad hits</span></label>
+        <label class="check-row"><input type="checkbox" id="set-keycaps" checked> <span>Show keyboard caps on the pads</span></label>
+        <label class="check-row"><input type="checkbox" id="set-metvol-row"> <span>Loud metronome</span></label>
+        <label class="check-row"><input type="checkbox" id="set-mutehold"> <span>Hold MUTE instead of toggling it (release returns to PLAY; same for the N key)</span></label>
+        <label class="check-row"><input type="checkbox" id="set-sidechain"> <span>Sidechain: the kick ducks the bass and FX pads for a pumping dub feel</span></label>
+        <label class="check-row"><input type="checkbox" id="set-hc"> <span>High contrast: darker pad text and thicker step outlines</span></label>
+        <label class="check-row"><input type="checkbox" id="set-lowlat"> <span>Low latency: ask the device for its smallest audio buffer (applies after a reload; may crackle on weak phones)</span></label>
+        <label class="check-row theme-row"><input type="checkbox" id="set-dark" class="theme-switch" aria-label="Dark or light skin"> <span>Skin: <span id="set-theme-note">following the system setting</span></span></label>
+        <label class="check-row"><input type="checkbox" id="set-ringout"> <span>Let the delay and reverb ring out after STOP, like a hardware box (a second STOP then cuts them). Off: STOP silences everything at once</span></label>
+        <label class="check-row"><input type="checkbox" id="set-stall"> <span>After a stall (phone lock, frozen tab), resume where the loop stopped instead of skipping ahead</span></label>
+        <label class="check-row"><input type="checkbox" id="set-keyhints"> <span>Always show key hints (touch devices hide the FX key letters and the keyboard legend)</span></label>
+        <p class="in-note" id="set-latency">Output latency: tap a pad first to measure.</p>
+        <label class="check-row"><input type="checkbox" id="set-posvel"> <span>Position velocity: on touch, the top third of a pad plays an accent (pressure where the screen reports it)</span></label>
+      </div>
+
+      <div class="set-group" id="set-projects">
+        <span class="sec-title">PROJECTS · <button class="lib-name" id="proj-current" title="Rename the open project">…</button></span>
+        <div class="set-actions"><button class="mini txt accent" id="proj-new" title="Start a new project from the demo patterns">NEW PROJECT</button></div>
+        <div class="lib-rows" id="proj-rows"></div>
+        <div class="lib-trash" id="proj-trash" hidden>
+          <span class="sec-title">TRASH <span class="dim">restorable until the page closes</span></span>
+          <div class="lib-rows" id="proj-trash-rows"></div>
+          <div class="set-actions"><button class="mini txt" id="proj-empty-trash">EMPTY TRASH</button></div>
+        </div>
+        <p class="in-note">Every project keeps its own patterns, tempos, song, master FX and mixer. The open one autosaves. Samples are shared by all projects.</p>
+      </div>
+
+      <div class="set-group" id="set-project">
+        <span class="sec-title">PROJECT</span>
+        <div class="set-actions">
+          <button class="mini txt" id="set-export">EXPORT</button>
+          <label class="mini txt file-btn">IMPORT<input type="file" id="set-import" accept="application/json,.json" hidden></label>
+          <button class="mini txt" id="set-share">COPY SHARE LINK</button>
+          <button class="mini txt" id="set-qr">SHOW QR</button>
+          <button class="mini txt" id="set-demos">RESET DEMO PATTERNS</button>
+          <button class="mini txt" id="set-clear-samples">CLEAR ALL SAMPLES</button>
+        </div>
+        <div class="qr-box" id="qr-box" hidden>
+          <canvas id="qr-canvas" width="240" height="240" aria-label="QR code of the share link"></canvas>
+          <p class="in-note" id="qr-note"></p>
+        </div>
+        <p class="in-note">Export covers patterns, tempo, swing, mutes and the song. A share link carries the same in the URL. Samples stay in this browser only.</p>
+      </div>
+
+      <div class="set-group" id="set-library">
+        <span class="sec-title">LIBRARY · <span id="lib-count">0 samples</span></span>
+        <div class="lib-rows" id="lib-rows"></div>
+        <div class="lib-trash" id="lib-trash" hidden>
+          <span class="sec-title">TRASH <span class="dim">restorable until the page closes</span></span>
+          <div class="lib-rows" id="lib-trash-rows"></div>
+          <div class="set-actions"><button class="mini txt" id="lib-empty-trash">EMPTY TRASH</button></div>
+        </div>
+        <p class="in-note"><span id="lib-storage"></span> Samples live in this browser only. Safari may discard them after seven days without a visit unless the app is installed to the home screen.</p>
+      </div>
+
+      <div class="set-group" id="set-midi">
+        <span class="sec-title">MIDI</span>
+        <div class="set-actions">
+          <button class="mini txt" id="midi-enable">ENABLE MIDI</button>
+          <label class="midi-sel">IN <select id="midi-in"><option value="">none</option></select></label>
+          <label class="midi-sel">OUT <select id="midi-out"><option value="">none</option></select></label>
+          <label class="midi-sel">CH <input type="number" id="midi-channel" min="1" max="16" value="10" inputmode="numeric"></label>
+        </div>
+        <p class="in-note" id="midi-status">off</p>
+        <label class="check-row"><input type="checkbox" id="midi-sync"> <span>Follow incoming MIDI clock and start / stop</span></label>
+        <label class="check-row"><input type="checkbox" id="midi-clockout"> <span>Send MIDI clock and start / stop to the output</span></label>
+        <label class="check-row"><input type="checkbox" id="midi-notesout"> <span>Send pad hits as notes on the output</span></label>
+        <div class="set-actions"><span class="in-note">LEARN: click a pad slot, then hit a pad on the controller. Default: GM drum notes 36 to 51, bottom row first.</span></div>
+        <div class="midi-learn-grid" id="midi-learn-grid"></div>
+        <div class="set-actions"><span class="in-note" id="midi-learn-hint"></span><button class="mini txt" id="midi-reset">RESET MAP</button></div>
+      </div>
+
+      <div class="set-group" id="set-audio">
+        <span class="sec-title">EXPORT AUDIO</span>
+        <div class="set-actions">
+          <button class="mini txt" id="exp-what" title="What to render: the current pattern or the song">PATTERN A</button>
+          <button class="mini txt" id="exp-bars" title="How many times the pattern plays">x1</button>
+          <button class="mini txt" id="exp-tail" title="Add one bar of silence at the end so the delay can ring out">NO TAIL</button>
+          <button class="mini txt" id="exp-met" title="Render the metronome click into the file">MET OFF</button>
+          <button class="mini txt accent" id="exp-go" title="Render and download a 16-bit WAV">EXPORT WAV</button>
+        </div>
+        <p class="in-note" id="exp-note"></p>
+      </div>
+
+      <div class="set-group" id="set-keyboard">
+        <span class="sec-title">KEYBOARD</span>
+        <p class="in-note">Remap the pad keys: click a pad below, then press the key you want. Keys swap if one is already taken. U I O P, T, M and N stay reserved for FX, tap, metronome and mute.</p>
+        <div class="keymap-grid" id="keymap-grid" role="group" aria-label="Pad key assignments"></div>
+        <div class="set-actions"><button class="mini txt" id="keymap-reset">RESET KEYS</button><span class="in-note" id="keymap-hint"></span></div>
+        <div class="keymap">
+          <p><b>Pads</b> 1 2 3 4 · Q W E R · A S D F · Z X C V (top row to bottom row) · Shift for an accent</p>
+          <p><b>Transport</b> Space play/stop · Enter record arm · Esc stop · [ ] BPM (Shift: 5) · T tap tempo · M metronome</p>
+          <p><b>Steps</b> click cycles off / on / accent · drag across steps to paint the same value · Backspace clears the pad · Ctrl+Z undo, Ctrl+Shift+Z redo · Shift+COPY / Shift+PASTE work on the selected pad row only</p>
+          <p><b>Wheel</b> scroll over BPM, swing, volume or the sample knobs to nudge them (Shift for bigger steps)</p>
+          <p><b>Live FX</b> hold U I O P and J K L ; · double-tap a button to latch, drag while holding for intensity · <b>Mute mode</b> N · <b>Keys mode</b> B · <b>Patterns</b> A B C D switch at the next bar while playing, each with its own kit</p>
+          <p><b>Views</b> F1 output · F2 input · F3 mixer · F4 settings · ? opens the guided tour, arrows step through it, Esc closes</p>
+        </div>
+      </div>
+
+      <div class="set-group" id="set-about">
+        <span class="sec-title">ABOUT</span>
+        <p class="in-note">Rhythm-39 v0.29. A browser homage to the sampler and step sequencer idea. Web Audio, no build step. Sounds are synthesized unless you load or record a sample.</p>
+        <p class="in-note">Released under the MIT License: free to use, copy, modify and redistribute, with the license notice kept. See LICENSE in the project folder.</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <button class="foot-note" id="foot-settings" title="Open settings">patterns autosave in this browser</button>
+    </footer>
+  </main>
+
+  <!-- Guided tour shade (everything except the described control is darkened) -->
+  <div class="tour-shade" id="tour-shade" hidden><div class="tour-hole" id="tour-hole"></div></div>
+
+  <!-- Guided tour card -->
+  <div class="tour" id="tour" hidden>
+    <div class="tour-card" id="tour-card" role="dialog" aria-labelledby="tour-title">
+      <div class="tour-top"><span class="tour-count" id="tour-count">1 / 12</span><button class="mini txt" id="tour-close">CLOSE</button></div>
+      <h3 id="tour-title"></h3>
+      <p id="tour-text"></p>
+      <div class="tour-nav">
+        <button class="mini" id="tour-prev" title="Previous">◀</button>
+        <div class="tour-dots" id="tour-dots"></div>
+        <button class="mini" id="tour-next" title="Next">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="core.js"></script>
+  <script src="app.js"></script>
+  <script src="kits.js"></script>
+  <script src="sampler.js"></script>
+  <script src="song.js"></script>
+  <script src="mixer.js"></script>
+  <script src="library.js"></script>
+  <script src="projects.js"></script>
+  <script src="qr.js"></script>
+  <script src="midi.js"></script>
+  <script src="export.js"></script>
+  <script src="help.js"></script>
+</body>
+</html>

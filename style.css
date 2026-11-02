@@ -125,7 +125,7 @@ button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 /* ---- Header / LCD ---- */
 .top {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   gap: var(--gap);
   align-items: stretch;
 }
@@ -136,6 +136,7 @@ button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
   padding: 4px 6px;
 }
 .brand-model {
+  white-space: nowrap;
   font-weight: 800;
   letter-spacing: .06em;
   font-size: clamp(15px, 4vw, 19px);
@@ -147,6 +148,7 @@ button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
   text-transform: uppercase;
 }
 .lcd {
+  min-width: 0;
   background: var(--lcd-bg);
   color: var(--lcd-fg);
   border-radius: 8px;
@@ -160,12 +162,12 @@ button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
   gap: 4px;
   min-height: 48px;
 }
-.lcd-row { display: flex; align-items: baseline; gap: 6px; }
+.lcd-row { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
 .lcd-label { color: var(--lcd-dim); font-size: 10px; letter-spacing: .1em; }
 .lcd-val { font-weight: 700; min-width: 2.2ch; margin-right: 6px; }
 .lcd-msg { flex: 1; font-size: 11px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* Output meter: two bars (L, R), fill = level, a thin tick = 1 s peak hold, red when hot */
-.lcd-meter { margin-left: auto; display: flex; flex-direction: column; gap: 3px; width: 64px; align-self: center; }
+.lcd-meter { margin-left: auto; display: flex; flex-direction: column; gap: 3px; flex: 0 1 64px; width: auto; min-width: 20px; align-self: center; }
 .lcd-meter i { display: block; position: relative; height: 4px; background: rgba(200, 242, 208, .12); border-radius: 2px; overflow: hidden; }
 .lcd-meter b { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--lcd-fg); opacity: .75; border-radius: 2px; }
 .lcd-meter u { position: absolute; top: 0; bottom: 0; width: 2px; left: 0; background: var(--lcd-fg); opacity: 0; }
@@ -861,7 +863,7 @@ button.lib-name { text-decoration: underline dotted; text-underline-offset: 3px;
   align-items: center;
 }
 .mfx-name { font-size: 10px; font-weight: 800; letter-spacing: .1em; color: var(--ink); }
-.mfx-knob { display: grid; grid-template-columns: 44px 1fr 34px; align-items: center; gap: 6px; font-size: 9px; font-weight: 700; letter-spacing: .08em; color: var(--ink-soft); }
+.mfx-knob { display: grid; grid-template-columns: 50px 1fr 34px; align-items: center; gap: 6px; font-size: 9px; font-weight: 700; letter-spacing: .08em; color: var(--ink-soft); }
 .mfx-knob input[type=range] { width: 100%; min-width: 0; }
 .mfx-knob output { font-family: ui-monospace, Menlo, monospace; font-size: 10px; text-align: right; color: var(--ink); }
 @media (max-width: 420px) {
@@ -966,14 +968,48 @@ input[type=range] {
 .keymap-key.listening small { color: #fff; }
 
 /* ---- Narrow phones ---- */
+/* Nothing here may be wider than the unit: iOS zooms the whole page out when any
+   row overflows, which is what made the layout look shrunken and cut off. */
 @media (max-width: 420px) {
-  .step-grid { grid-template-columns: repeat(var(--cols-half, 8), 1fr); }
-  .step { aspect-ratio: 1.6 / 1; min-height: 22px; }
+  .step-grid { grid-template-columns: repeat(var(--cols-half, 8), minmax(0, 1fr)); }
+  .step { aspect-ratio: 1.6 / 1; min-height: 20px; min-width: 0; }
   .tbtn, .pbtn { height: 44px; }
   .tbtn .tlabel { font-size: 8px; letter-spacing: .04em; }
   .pbtn { font-size: 14px; }
   .mixer { grid-template-columns: 1fr; }
   .brand-sub { display: none; }
+  /* LCD: tighter readout so PTN, BPM, SWG and the meter share one line */
+  .lcd { padding: 6px 8px; }
+  .lcd-row { gap: 4px; }
+  .lcd-val { margin-right: 2px; min-width: 0; }
+  .lcd-meter { flex-basis: 40px; }
+  /* Tempo row: slimmer +/- keys, TAP MET SONG share what is left */
+  .bpm { grid-template-columns: 36px minmax(56px, 1fr) 36px repeat(3, minmax(0, 1fr)); gap: 4px; }
+  .bpm .mini.txt { padding: 0 2px; font-size: 9px; letter-spacing: .02em; }
+  .bpm-input { font-size: 16px; }
+  /* Step toolbar: the pad name sits on its own line, the five keys fill the next */
+  .steps-head { flex-wrap: wrap; gap: 4px; }
+  .steps-title { flex: 1 1 100%; white-space: nowrap; }
+  .steps-head .mini.txt { flex: 1 1 0; min-width: 0; padding: 0 3px; font-size: 9px; letter-spacing: .02em; }
+  .steps-sub { gap: 4px; }
+  .steps-sub .mini.txt, .padmode .mini.txt { padding: 0 6px; font-size: 9px; letter-spacing: .04em; }
+  .page-btn { min-width: 22px; padding: 0 4px; }
+  /* Live FX keys: centred, smaller lettering so TAPE STOP and REPEAT fit a quarter width */
+  .fxbtn { padding: 0 4px; font-size: 9px; letter-spacing: .03em; justify-content: center; gap: 4px; text-align: center; }
+  .fxbtn span { line-height: 1.1; }
+  .pad { padding: 6px; }
+  .pad .pad-name { font-size: clamp(10px, 3vw, 14px); line-height: 1.1; }
+}
+/* Very small phones (iPhone SE, zoomed Safari): brand strip above a full-width LCD */
+@media (max-width: 360px) {
+  .top { grid-template-columns: 1fr; gap: 4px; }
+  .brand { flex-direction: row; align-items: baseline; gap: 8px; padding: 0 4px; }
+  .brand-model { font-size: 14px; }
+  .lcd { min-height: 44px; }
+  .transport { gap: 4px; }
+  .tbtn .ico { font-size: 14px; }
+  .pbtn { font-size: 13px; }
+  .fxbtn { font-size: 8px; padding: 0 3px; }
 }
 
 /* Landscape phones: allow two-column layout so pads stay reachable */

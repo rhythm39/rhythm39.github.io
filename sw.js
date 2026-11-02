@@ -1,7 +1,7 @@
 /* Rhythm-39 service worker: cache the app shell so it works offline once visited.
    Bump CACHE when shipping changes so clients pick up new files. */
-const CACHE = 'rhythm39-v15';
-const SHELL = ['./', './index.html', './style.css', './core.js', './app.js', './kits.js', './sampler.js', './song.js', './mixer.js', './library.js', './projects.js', './qr.js', './midi.js', './export.js', './crush-worklet.js', './capture-worklet.js', './help.js', './manifest.json', './icon.svg'];
+const CACHE = 'rhythm39-v16';
+const SHELL = ['./', './index.html', './style.css', './core.js', './app.js', './kits.js', './sampler.js', './song.js', './mixer.js', './library.js', './projects.js', './qr.js', './midi.js', './export.js', './crush-worklet.js', './capture-worklet.js', './help.js', './manifest.json', './icon.svg', './favicon.ico', './favicon-16x16.png', './favicon-32x32.png', './apple-touch-icon.png', './img/icon-192.png', './img/icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
